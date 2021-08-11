@@ -6,6 +6,7 @@
       matInput
       placeholder="Ex: Ditto"
       [(ngModel)]="pokemonName"
+      (keydown.enter)="getPokemonDetails()"
     />
   </mat-form-field>
   <button
@@ -13,6 +14,7 @@
     class="button-search"
     color="primary"
     aria-label="icon button with a menu icon"
+    [disabled]="!pokemonName.length"
     (click)="getPokemonDetails()"
   >
     <mat-icon>search</mat-icon>

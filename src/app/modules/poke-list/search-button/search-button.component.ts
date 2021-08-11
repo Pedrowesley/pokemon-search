@@ -22,29 +22,31 @@ export class SearchButtonComponent implements OnInit {
   ngOnInit(): void {}
 
   getPokemonDetails() {
-    const stopLoading = () => {
-      this.pokeListService.listLoading = false;
-    };
+    if (this.pokemonName.length > 0) {
+      const stopLoading = () => {
+        this.pokeListService.listLoading = false;
+      };
 
-    const runLoading = () => {
-      this.pokeListService.listLoading = true;
-    };
-    const pokemonNameModify = this.pokemonName.toLocaleLowerCase();
+      const runLoading = () => {
+        this.pokeListService.listLoading = true;
+      };
+      const pokemonNameModify = this.pokemonName.toLocaleLowerCase();
 
-    runLoading();
-    this.pokeListService.wasSearched = true;
-    this.pokemonService.getPokemonDetails(pokemonNameModify).subscribe(
-      (response) => {
-        let pokemonDataComplete = {} as Pokemon;
-        pokemonDataComplete = response;
-        this.adaptModelAndFillData(pokemonDataComplete);
-        stopLoading();
-      },
-      (error: HttpErrorResponse) => {
-        stopLoading();
-        this.pokeListService.pokemonData = {} as PokemonSimplified;
-      }
-    );
+      runLoading();
+      this.pokeListService.wasSearched = true;
+      this.pokemonService.getPokemonDetails(pokemonNameModify).subscribe(
+        (response) => {
+          let pokemonDataComplete = {} as Pokemon;
+          pokemonDataComplete = response;
+          this.adaptModelAndFillData(pokemonDataComplete);
+          stopLoading();
+        },
+        (error: HttpErrorResponse) => {
+          stopLoading();
+          this.pokeListService.pokemonData = {} as PokemonSimplified;
+        }
+      );
+    }
   }
 
   adaptModelAndFillData(pokemonDataComplete: Pokemon) {
