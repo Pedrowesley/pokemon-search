@@ -8,7 +8,7 @@
   <app-list-games
     *ngIf="
       !pokeListService.listLoading &&
-      pokeListService.pokemonData.gamesLength > 0
+      (pokeListService.pokemonData.name?.length ?? 0) > 0
     "
     [pokemonData]="pokeListService.pokemonData"
     [games]="pokeListService.gamesAssociatePokemon"
