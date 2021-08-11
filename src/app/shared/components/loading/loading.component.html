@@ -1,0 +1,14 @@
+<div class="centralize-item" *ngIf="loading">
+  <mat-spinner [diameter]="50"></mat-spinner>
+</div>
+
+<div *ngIf="!loading && !dataLength && wasLoading" class="centralize-item">
+  <span class="message-info">
+    <strong>Ops...</strong> O pokemon digitado não foi encontrado, se certifique
+    de digitar corretamente o nome desejado
+  </span>
+</div>
+
+<div *ngIf="!loading && !dataLength && !wasLoading" class="centralize-item">
+  <span class="message-info">Pesquise sobre seu Pokemon preferido</span>
+</div>

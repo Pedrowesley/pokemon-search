@@ -1,0 +1,20 @@
+<section class="search-pokemon">
+  <mat-form-field class="input-search" appearance="fill">
+    <mat-label>Pesquise seu Pokemon</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Ex: Ditto"
+      [(ngModel)]="pokemonName"
+    />
+  </mat-form-field>
+  <button
+    mat-mini-fab
+    class="button-search"
+    color="primary"
+    aria-label="icon button with a menu icon"
+    (click)="getPokemonDetails()"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+</section>

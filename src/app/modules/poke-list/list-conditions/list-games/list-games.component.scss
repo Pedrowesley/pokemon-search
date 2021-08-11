@@ -1,0 +1,42 @@
+.mat-card-content > p {
+  color: #5d5d5d;
+  font-weight: 400;
+}
+
+.card-image {
+  width: 10rem;
+  height: 10rem;
+}
+
+.display-center {
+  display: flex;
+  justify-content: center;
+}
+
+.title-list {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #3f51b5b8;
+}
+
+.icon-list {
+  color: #3f51b5b8;
+}
+
+.name-game {
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  color: #4f4f4f;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #3f51b5b8;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .mt-sm-list {
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,16 @@
+<app-loading
+  [loading]="pokeListService.listLoading"
+  [dataLength]="pokeListService.pokemonData.name?.length"
+  [wasLoading]="pokeListService.wasSearched"
+></app-loading>
+
+<div class="w-100">
+  <app-list-games
+    *ngIf="
+      !pokeListService.listLoading &&
+      pokeListService.pokemonData.gamesLength > 0
+    "
+    [pokemonData]="pokeListService.pokemonData"
+    [games]="pokeListService.gamesAssociatePokemon"
+  ></app-list-games>
+</div>

@@ -1,0 +1,53 @@
+<div class="container-fluid row">
+  <div class="col-md-4">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ pokemonData.name | titlecase }}</mat-card-title>
+        <mat-card-subtitle>{{
+          pokemonData.type | titlecase
+        }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <div class="display-center">
+        <img
+          mat-card-image
+          class="card-image"
+          [src]="pokemonData.image"
+          alt="Photo of a Pokemon"
+        />
+      </div>
+      <mat-card-content>
+        <p>
+          Esse pokemon é do tipo
+          <span class="highlight">{{ pokemonData.type }}</span
+          >, possuindo uma base experience de
+          <span class="highlight">{{ pokemonData.base_experience }}</span> com
+          um total de
+          <span class="highlight">{{ pokemonData.movesLength }}</span>
+          movimentos de batalha. Sua estatística de base é de
+          <span class="highlight">{{ pokemonData.base_stat }}</span> . Esteve
+          presente em
+          <span class="highlight">{{ pokemonData.gamesLength }}</span> jogos da
+          franquia.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>CURTIR</button>
+        <button mat-button>COMENTAR</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-7 mt-sm-list">
+    <mat-list>
+      <div mat-subheader class="title-list">Games associados</div>
+
+      <div class="row">
+        <mat-list-item class="col-md-4 col-6" *ngFor="let games of games">
+          <mat-icon mat-list-icon class="icon-list">done</mat-icon>
+          <div mat-line class="name-game">{{ games.version.name }}</div>
+        </mat-list-item>
+      </div>
+    </mat-list>
+  </div>
+</div>
